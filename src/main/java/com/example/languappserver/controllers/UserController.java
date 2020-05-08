@@ -18,7 +18,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String home(){
-        return "Hello World!";
+        return "Hello loh!";
     }
 
     @GetMapping("/getUser/{id}")
