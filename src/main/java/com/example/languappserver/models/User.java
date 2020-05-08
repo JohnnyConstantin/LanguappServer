@@ -12,7 +12,7 @@ import javax.swing.*;
 @Entity
 @EqualsAndHashCode(of = {"id"})
 @Table(name = "user", schema = "public")
-public class User{
+public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "id")
@@ -25,54 +25,4 @@ public class User{
     private String mail;
     @Column(name = "phone")
     private String phone;
-    @Column(name = "photo")
-    private ImageIcon photo;
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setPhoto(ImageIcon photo) {
-        this.photo = photo;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public ImageIcon getPhoto() {
-        return photo;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public Integer getId() {
-        return id;
-    }
 }

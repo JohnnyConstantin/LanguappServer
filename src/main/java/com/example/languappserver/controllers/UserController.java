@@ -27,11 +27,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    public User register(@RequestBody String mail, String password) {
-        mail = mail.substring(6, mail.indexOf("&"));
+    public User register(@RequestBody String mail, String pass, String phone, String name) {
         User user = new User();
         user.setMail(mail);
-        user.setPassword(passwordEncoder.encode(password));
+        user.setName(name);
+        user.setPhone(phone);
+        user.setPassword(pass);
         return userService.saveUser(user);
     }
 
