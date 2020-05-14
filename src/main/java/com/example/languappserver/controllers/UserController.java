@@ -27,12 +27,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
-    public User register(@RequestBody String mail, String pass, String phone, String name) {
-        User user = new User();
-        user.setMail(mail);
-        user.setName(name);
-        user.setPhone(phone);
-        user.setPassword(pass);
+    public User register(@RequestBody User user) {
+        user = new User(user.getMail(), user.getPassword(), user.getPhone(), user.getName());
         return userService.saveUser(user);
     }
 

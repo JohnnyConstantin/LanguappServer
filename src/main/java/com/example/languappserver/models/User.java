@@ -1,9 +1,7 @@
 package com.example.languappserver.models;
 
 import lombok.*;
-
 import javax.persistence.*;
-import javax.swing.*;
 
 @Getter
 @Setter
@@ -25,4 +23,11 @@ public class User {
     private String mail;
     @Column(name = "phone")
     private String phone;
+
+    public User(String mail, String password, String phone, String name) {
+        this.mail = mail;
+        this.password = password;
+        this.phone = phone;
+        this.name = name;
+    }
 }
