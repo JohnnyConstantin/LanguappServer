@@ -26,7 +26,7 @@ public class UserService {
     }
 
     @Transactional
-    public User findUserByMail(String mail){
-        return userRepo.findUserByMail(mail);
+    public User findUserById(String id){
+        return userRepo.findUserById(id);
     }
 }

@@ -33,9 +33,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestBody String mail, String password) {
+    public String login(@RequestBody String mail, String password, String id) {
         mail = mail.substring(6, mail.indexOf("&"));
-        User user = userService.findUserByMail(mail);
+        User user = userService.findUserById(id);
         if (user == null) {
             return "Wrong mail";
         } else if (passwordEncoder.matches(password, user.getPassword())) {

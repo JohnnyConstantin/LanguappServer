@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 // CrudRepository несёт в себе некоторые стандартные функции(Например, findById), которые не нужно потом прописывать
 @Repository
 public interface UserRepo extends CrudRepository<User, Integer> {
-    @Query("SELECT user FROM User user WHERE user.mail=:mail")
-    User findUserByMail(@Param("mail") String mail);
+    @Query("SELECT user FROM User user WHERE user.id=:id")
+    User findUserById(@Param("id") String id);
 }
