@@ -18,15 +18,15 @@ public class User {
     @Column(name = "name")
     private String name;
     @Column(name = "pass")
-    private String password;
+    private String pass;
     @Column(name = "mail")
     private String mail;
     @Column(name = "phone")
     private String phone;
 
-    public User(String mail, String password, String phone, String name) {
+    public User(String mail, String pass, String phone, String name) {
         this.mail = mail;
-        this.password = password;
+        this.pass = pass;
         this.phone = phone;
         this.name = name;
     }

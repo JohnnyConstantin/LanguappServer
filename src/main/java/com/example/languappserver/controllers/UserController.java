@@ -18,7 +18,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String home(){
-        return "Hello loh!";
+        return "Hello dear friend!";
     }
 
     @GetMapping("/getUser/{id}")
@@ -28,7 +28,7 @@ public class UserController {
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public User register(@RequestBody User user) {
-        user = new User(user.getMail(), user.getPassword(), user.getPhone(), user.getName());
+        user = new User(user.getMail(), user.getPass(), user.getPhone(), user.getName());
         return userService.saveUser(user);
     }
 
@@ -38,7 +38,7 @@ public class UserController {
         User user = userService.findUserById(id);
         if (user == null) {
             return "Wrong mail";
-        } else if (passwordEncoder.matches(password, user.getPassword())) {
+        } else if (passwordEncoder.matches(password, user.getPass())) {
             return "Login successful";
         } else {
             return "Wrong password";
