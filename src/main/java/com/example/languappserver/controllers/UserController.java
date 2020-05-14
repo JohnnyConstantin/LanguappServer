@@ -28,7 +28,7 @@ public class UserController {
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public User register(@RequestBody User user) {
-        user = new User(user.getMail(), passwordEncoder.encode(user.getPassword()), user.getPhone(), user.getName());
+        user = new User(user.getMail(), user.getPassword(), user.getPhone(), user.getName());
         return userService.saveUser(user);
     }
 
