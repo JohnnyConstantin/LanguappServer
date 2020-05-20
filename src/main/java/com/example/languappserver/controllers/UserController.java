@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public int login(@RequestBody User chil) {
+    public Integer login(@RequestBody User chil) {
         User user = userService.findUserById(chil.getMail());
         if (user == null) {
             return 0;
