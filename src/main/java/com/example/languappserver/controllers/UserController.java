@@ -32,10 +32,9 @@ public class UserController {
         return userService.saveUser(user);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestBody String mail, String password, String id) {
-        mail = mail.substring(6, mail.indexOf("&"));
-        User user = userService.findUserById(id);
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(@RequestBody String mail, String password) {
+        User user = userService.findUserById(mail);
         if (user == null) {
             return "Wrong mail";
         } else if (passwordEncoder.matches(password, user.getPass())) {
