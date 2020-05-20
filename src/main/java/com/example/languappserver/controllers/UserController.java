@@ -33,14 +33,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestBody User chil) {
+    public int login(@RequestBody User chil) {
         User user = userService.findUserById(chil.getMail());
         if (user == null) {
-            return "Wrong mail";
+            return 0;
         } else if (passwordEncoder.matches(chil.getPass(), user.getPass())) {
-            return "{Login successful}";
+            return 200;
         } else {
-            return "Wrong password";
+            return 100;
         }
     }
 }
