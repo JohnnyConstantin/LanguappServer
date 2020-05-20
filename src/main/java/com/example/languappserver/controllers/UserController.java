@@ -38,7 +38,7 @@ public class UserController {
         if (user == null) {
             return "Wrong mail";
         } else if (passwordEncoder.matches(chil.getPass(), user.getPass())) {
-            return "Login successful";
+            return "{Login successful}";
         } else {
             return "Wrong password";
         }
