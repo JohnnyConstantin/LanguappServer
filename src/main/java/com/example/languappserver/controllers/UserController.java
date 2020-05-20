@@ -32,7 +32,7 @@ public class UserController {
         return userService.saveUser(user);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestBody String mail, String password) {
         User user = userService.findUserById(mail);
         if (user == null) {
