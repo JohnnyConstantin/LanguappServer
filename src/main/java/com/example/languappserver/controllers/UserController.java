@@ -33,14 +33,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Integer login(@RequestBody User chil) {
+    public User login(@RequestBody User chil) {
         User user = userService.findUserById(chil.getMail());
-        if (user == null) {
-            return 0;
-        } else if (passwordEncoder.matches(chil.getPass(), user.getPass())) {
-            return 200;
-        } else {
-            return 100;
+        if(passwordEncoder.matches(chil.getPass(), user.getPass())) {
+            return userService.saveUser(chil);
         }
     }
 }
