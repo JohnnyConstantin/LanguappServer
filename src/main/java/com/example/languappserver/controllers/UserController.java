@@ -36,11 +36,11 @@ public class UserController {
     public String login(@RequestBody User chil) {
         User user = userService.findUserById(chil.getMail());
         if(passwordEncoder.matches(chil.getPass(), user.getPass())) {
-            return "Login successful";
+            return "Login";
         } else if(user == null)
         {
-            return "Bad mail";
+            return "Mail";
         } else
-        return "bad pass";
+        return "Pass";
     }
 }
