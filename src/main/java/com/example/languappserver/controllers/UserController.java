@@ -28,7 +28,8 @@ public class UserController {
 
     @RequestMapping(value = "/data", method = RequestMethod.POST)
     public User getMail(@RequestBody String mail){
-        return userService.findUserById(mail);
+        User user = userService.findUserById(mail);
+        return user;
     }
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
