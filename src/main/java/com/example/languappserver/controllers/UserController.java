@@ -26,21 +26,12 @@ public class UserController {
         return userService.getUser(id);
     }
 
-    @RequestMapping(value = "/dataMail", method = RequestMethod.POST)
+    @RequestMapping(value = "/data", method = RequestMethod.POST)
     public String getMail(@RequestBody String mail){
         User user = userService.findUserById(mail);
         return user.getMail();
     }
 
-    @RequestMapping(value = "/dataPhone", method = RequestMethod.POST)
-    public String getPhone(@RequestBody String mail){
-        User user = userService.findUserById(mail);
-        return user.getPhone();
-    }
-    @RequestMapping(value = "/dataName", method = RequestMethod.POST)
-    public String getName(@RequestBody String mail){
-        return "hz";
-    }
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public User register(@RequestBody User user) {
         user = new User(user.getMail(), passwordEncoder.encode(user.getPass()), user.getPhone(), user.getName());

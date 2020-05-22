@@ -29,9 +29,4 @@ public class UserService {
     public User findUserById(String mail){
         return userRepo.findUserById(mail);
     }
-
-    @Transactional
-    public String findUserName(String mail){
-        return userRepo.findUserName(mail);
-    }
 }
