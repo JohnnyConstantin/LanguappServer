@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 // Репозторий - механизм взаимодействия с базой
 // CrudRepository несёт в себе некоторые стандартные функции(Например, findById), которые не нужно потом прописывать
 @Repository
-public interface UserRepo extends CrudRepository<User, String> {
+public interface UserRepo extends CrudRepository<User, Integer> {
     @Query("SELECT user FROM User user WHERE user.mail=:mail")
     User findUserById(@Param("mail") String mail);
 }
