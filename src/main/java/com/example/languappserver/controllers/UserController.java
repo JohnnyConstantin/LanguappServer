@@ -39,7 +39,7 @@ public class UserController {
     }
     @RequestMapping(value = "/dataName", method = RequestMethod.POST)
     public String getName(@RequestBody String mail){
-        return userService.findUserName(mail);
+        return "hz";
     }
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public User register(@RequestBody User user) {
