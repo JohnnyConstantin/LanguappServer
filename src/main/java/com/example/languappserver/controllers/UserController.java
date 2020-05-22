@@ -26,9 +26,14 @@ public class UserController {
         return userService.getUser(id);
     }
 
+    @GetMapping("/data/{mail}")
+    public User getUser(@PathVariable String mail) {
+        return userService.getUserbyMail(mail);
+    }
+
     @RequestMapping(value = "/data", method = RequestMethod.POST)
     public String getMail(@RequestBody String mail){
-        User user = userService.getUserbyMail(mail);
+        User user = userService.findUserById(mail);
         return user.getName();
     }
 
