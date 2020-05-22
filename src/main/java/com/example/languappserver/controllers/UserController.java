@@ -26,10 +26,9 @@ public class UserController {
         return userService.getUser(id);
     }
 
-    @GetMapping("/data")
+    @RequestMapping(value = "/data", method = RequestMethod.POST)
     public User getMail(@RequestBody String mail){
-        User user = userService.findUserById(mail);
-        return user;
+        return userService.findUserById(mail);
     }
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
