@@ -15,14 +15,14 @@ public class UserService {
     private UserRepo userRepo;
 
     @Transactional(readOnly = true)
-    public User getUser(Integer id){
-        return userRepo.findById(id).orElse(null);
+    public User getUser(String mail){
+        return userRepo.findById(mail).orElse(null);
     }
 
     @Transactional
     public User saveUser(User user){
         userRepo.save(user);
-        return userRepo.findById(user.getId()).orElse(null);
+        return userRepo.findById(user.getMail()).orElse(null);
     }
 
     @Transactional
