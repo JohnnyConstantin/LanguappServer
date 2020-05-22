@@ -28,9 +28,10 @@ public class UserController {
 
     @RequestMapping(value = "/data", method = RequestMethod.POST)
     public String getMail(@RequestBody String mail){
+        mail = mail.substring(5);
         mail = mail.replace("%40","@");
         User user = userService.getUserbyMail(mail);
-        return mail;
+        return user.getName();
     }
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
