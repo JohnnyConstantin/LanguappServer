@@ -26,6 +26,12 @@ public class UserController {
         return userService.getUser(id);
     }
 
+    @GetMapping("/data")
+    public User getMail(@RequestBody String mail){
+        User user = userService.findUserById(mail);
+        return user;
+    }
+
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public User register(@RequestBody User user) {
         user = new User(user.getMail(), passwordEncoder.encode(user.getPass()), user.getPhone(), user.getName());
