@@ -27,9 +27,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/data", method = RequestMethod.POST)
-    public String getMail(@RequestBody String mail){
+    public User getMail(@RequestBody String mail){
         User user = userService.getUserbyMail(mail);
-        return user.getPhone();
+        return user;
     }
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
