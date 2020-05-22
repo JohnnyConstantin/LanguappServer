@@ -19,11 +19,6 @@ public class UserService {
         return userRepo.findById(id).orElse(null);
     }
 
-    @Transactional(readOnly = true)
-    public User getUsMail(String mail){
-        return userRepo.findUserById(mail);
-    }
-
     @Transactional
     public User saveUser(User user){
         userRepo.save(user);
@@ -33,5 +28,10 @@ public class UserService {
     @Transactional
     public User findUserById(String mail){
         return userRepo.findUserById(mail);
+    }
+
+    @Transactional
+    public String findUserName(String mail){
+        return userRepo.findUserName(mail);
     }
 }
