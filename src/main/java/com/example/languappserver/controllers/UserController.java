@@ -28,7 +28,6 @@ public class UserController {
 
     @RequestMapping(value = "/data", method = RequestMethod.POST)
     public User getMail(@RequestBody String mail){
-        mail = mail.substring(5);
         mail = mail.replace("%40","@");
         User user = userService.getUserbyMail(mail);
         return user;
