@@ -40,7 +40,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestBody User chil) {
-        User user = userService.findUserById(chil.getMail());
+        User user = userService.getUserbyMail(chil.getMail());
         if(passwordEncoder.matches(chil.getPass(), user.getPass())) {
             return "Login";
         } else if(user == null)

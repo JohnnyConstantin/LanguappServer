@@ -29,9 +29,4 @@ public class UserService {
         userRepo.save(user);
         return userRepo.findById(user.getId()).orElse(null);
     }
-
-    @Transactional
-    public User findUserById(String mail){
-        return userRepo.findUserById(mail);
-    }
 }
