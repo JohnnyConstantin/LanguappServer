@@ -22,13 +22,13 @@ public class UserController {
     }
 
     @GetMapping("/getUser/{id}")
-    public User getUser(@PathVariable Integer id) {
+    public User getUser(@PathVariable String id) {
         return userService.getUser(id);
     }
 
     @RequestMapping(value = "/data", method = RequestMethod.POST)
     public String getMail(@RequestBody String mail){
-        User user = userService.findUserById(mail);
+        User user = userService.getUser(mail);
         return user.getMail()+"/"+user.getPhone()+"/"+user.getName();
     }
 
